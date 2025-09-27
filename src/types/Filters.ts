@@ -1,7 +1,10 @@
 export interface Filter {
-    locatio?: string;
-    type?: string;
-    AC?: string;
+    location?: string;
+    form?: string;
+    AC?: boolean;
     kitchen?: boolean;
+    automatic?: boolean;
+    TV?: boolean;
+    bathroom?: boolean;
     [key: string]: string | boolean | undefined;
 }
