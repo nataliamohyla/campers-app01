@@ -1,0 +1,52 @@
+.button{
+    border-radius: 200px;
+padding: 16px 60px;
+width: 166px;
+height: 56px;
+background:  #E44848;
+}
+.button:hover{
+    background-color: #D84343;
+}
+.card{
+display: flex;
+flex-direction: row;
+border: 1px solid #dadde1;
+border-radius: 20px;
+padding: 24px;
+width: 888px;
+height: 368px;
+
+}
+.name{
+     font-family: var(--font-family);
+    font-weight: 600;
+font-size: 24px;
+line-height: 133%;
+}
+.image{
+    border-radius: 10px;
+width: 292px;
+height: 320px;
+object-fit: cover;
+}
+.text{
+     font-family: var(--font-family);
+    font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+text-align: center;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    margin-left: 32px;
+    display: flex;
+    flex-direction: column;
+}
+.butonbox{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-grow: 1;
+}

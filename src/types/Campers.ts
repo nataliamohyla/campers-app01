@@ -1,10 +1,14 @@
-
+export interface Photo {
+  thumb: string;
+  original: string;
+}
 
 export interface Camper {
   id: string;
   name: string;
   price: number;
   location: string;
+  rating?: number;
   type: string;
   transmission?: string;
   engine?: string;
@@ -24,6 +28,7 @@ export interface Camper {
   tank?: number;
   consumption?: number;
   photos?: string[];
+  gallery?: Photo[];
   reviews?: Review[];
 }
 export interface Review {

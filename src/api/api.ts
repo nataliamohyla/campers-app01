@@ -5,6 +5,11 @@ import type { Camper } from '../types/Campers';
 
 const API_URL = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers';
 
-export const getCampers = (fiters?: Filter, page?: number) => axios.get<Camper[]>(API_URL, { params: { ...fiters, page } });
+export interface GetCampersResponse {
+  total: number;
+  items: Camper[];
+}
+export const getCampers = (filters?: Filter, page?: number) =>
+  axios.get<GetCampersResponse>(API_URL, { params: { ...filters, page } });
 
 export const getCampersById = (id: string) => axios.get<Camper>(`${API_URL}/${id}`);

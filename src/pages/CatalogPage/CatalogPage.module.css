@@ -1,0 +1,23 @@
+.catalogPage {
+  display: flex;
+  flex-direction: column; 
+  padding: 40px;
+}
+.content {
+  display: flex;      
+  gap: 120px;           
+  margin-top: 20px;    
+}
+
+.content > * {
+  flex-shrink: 0;      
+}
+.FiltersPanel {
+  width: 360px;         
+}
+
+.CampersCatalog {
+  flex: 1;     
+  margin-left: 270px;
+        
+}
