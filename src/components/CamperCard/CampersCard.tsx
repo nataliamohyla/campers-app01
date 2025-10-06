@@ -9,7 +9,6 @@ export const CamperCard = ({ camper }: { camper: Camper }) => {
   return (
     <div className={styles.card}>
       <div>
-         
           <img
               src={camper.gallery ?.[0]?.thumb || "https://via.placeholder.com/150"}
               alt={camper.name}
@@ -17,25 +16,69 @@ export const CamperCard = ({ camper }: { camper: Camper }) => {
           width={292}
         />
       </div>
+      <div className={styles.typebox}>
+        <div className={styles.namebox}>
+          <div className={styles.topRow}>
+            <h2 className={styles.name}>{camper.name}</h2>
+            <h2 className={styles.price}>€{camper.price}</h2>
+            </div> 
+          <div className={styles.bottomRow}>
+             <div className={styles.reviews}>
+            <Icon name="icon-star" width={16} height={16} className={styles.icon} />  
+              <span>{camper.rating}</span> 
+              <span className={styles.count}>
+               ({camper.reviews?.length || 0} reviews)
+             </span>
+            </div>
+          <div className={styles.location}>
+              <Icon name="icon-Map" width={16} height={16} className={styles.icon} />
+             <span>{camper.location}</span> 
+            </div>
+           
+          </div>
+          </div>
       <div className={styles.info}>
-         <h2 className={styles.name}>{camper.name}</h2>
-        <p className={styles.reviews}>Reviews: {camper.rating}</p>
-      <p className={styles.text}>
+ <div className={styles.description}>
+              <p>
+                 {camper.description.length > 100
+    ? camper.description.slice(0, 100) + "..."
+    : camper.description}
+              </p>
+          </div> 
+        <div className={styles.text}><p >
+            AC  {camper.AC}
         <Icon name="icon-wind" width={16} height={16} className={styles.icon} />
-        AC : {camper.AC}</p>  
-      <p className={styles.text}>
+          </p>
+          </div>
+        {camper.kitchen && (
+          <div className={styles.text}>
+            <p >
+           Kitchen 
          <Icon name="icon-cup-hot" width={16} height={16} className={styles.icon} />
-        Kitchen: {camper.kitchen}</p>
-      <p className={styles.text}>
-         <Icon name="icon-gas" width={16} height={16} className={styles.icon} />
-        Petrol: {camper.engine}</p>
-      <p className={styles.text}>
-          <Icon name="icon-diagram" width={16} height={16} className={styles.icon} />
-          Automatic: {camper.transmission}</p>
-      </div>
+       </p></div>
+        )}
+      
+          <div className={styles.text}>
+            <p>
+          Petrol {camper.engine}
+         <Icon name="icon-fuel-pump" width={16} height={16} className={styles.icon} />
+            </p>
+          </div>
+        {camper.transmission === 'automatic' && (
+          <div className={styles.text}>
+            <p >
+          Automatic {camper.transmission}
+            <Icon name="icon-diagram" width={16} height={16} className={styles.icon} />
+            </p>
+          </div>
+        )}
+    </div>
       <div className={styles.butonbox}> 
         <button className={styles.button} type="button" onClick={() => navigate('/catalog/:id')}>Show more</button>
       </div>
       </div>
+      
+      </div>
+  
   );
 }

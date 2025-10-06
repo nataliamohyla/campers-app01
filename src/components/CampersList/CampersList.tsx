@@ -18,10 +18,15 @@ export const CampersCatalog = () => {
   if (status === "failed") return <p>Error loading campers</p>;
 
   return (
-    <div className={styles.catalog}>
-      {items.map((camper: Camper) => (
-        <CamperCard key={camper.id} camper={camper} />
-      ))}
+    <div >
+      <ul className={styles.catalog}>
+       {items.map((camper: Camper) => (
+          <li key={camper.id} className={styles.item}>
+            <CamperCard camper={camper} />
+          </li>
+        ))}
+      </ul>
+    
     </div>
   );
 };

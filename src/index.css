@@ -3,7 +3,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
-  color: var(--main);
+  color: #101828;
 
   color-scheme: light dark;
   color: rgba(10, 10, 10, 0.87);
@@ -23,6 +23,19 @@ body {
 a {
   text-decoration: none;
   color: black;
+}
+p {
+  font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: var(--font-family);
+}
+ul{
+    list-style: none;
 }
 
 
