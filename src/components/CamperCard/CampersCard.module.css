@@ -34,6 +34,11 @@ object-fit: cover;
   align-items: center;
   width: 100%;
 }
+.pricebox{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 .wishbutton{
   background: none;
   border: none;

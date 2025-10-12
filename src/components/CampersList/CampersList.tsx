@@ -44,13 +44,11 @@ export const CampersCatalog = () => {
           </li>
         ))}
       </ul>
-   
-        <div className={styles.butonbox}>
+      {items.length < allItems.length && (
+       <div className={styles.butonbox}>
         <button className={styles.button} onClick={handleLoadMore}>Load More</button>
-        </div>
-     // 
-       
-    
-    </div>
+        </div> 
+   )}
+</div>
   );
 };

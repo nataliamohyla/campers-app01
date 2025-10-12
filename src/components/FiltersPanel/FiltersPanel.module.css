@@ -53,7 +53,6 @@ flex-wrap: wrap;
   color: #101828;
 }
 
-
 .button {
   flex: 0 0 calc(33.33% - 12px);
 height: 96px;
@@ -75,6 +74,13 @@ height: 96px;
 
 .button:hover {
   border-color: #e53e3e; 
+  background: #fff5f5;
+}
+.button.active {
+  font-weight: normal;
+  color: inherit;
+  padding: inherit;
+   border-color: #e53e3e; 
   background: #fff5f5;
 }
 .bigbutton{

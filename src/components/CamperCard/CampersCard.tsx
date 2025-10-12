@@ -31,12 +31,14 @@ export const CamperCard = ({ camper }: { camper: Camper }) => {
         <div className={styles.namebox}>
           <div className={styles.topRow}>
             <h2 className={styles.name}>{camper.name}</h2>
+            <div className={styles.pricebox}>
             <h2 className={styles.price}>€{camper.price}</h2>
             <button className={clsx(styles.wishbutton, {
                 [styles.active]: isFavorite,
               })} onClick={handelToggleFavorite} type="button">
               <Icon name="icon-Like" width={24} height={24} className={styles.icon} />
-            </button>
+              </button>
+              </div>
             </div> 
           <div className={styles.bottomRow}>
              <div className={styles.reviews}>
