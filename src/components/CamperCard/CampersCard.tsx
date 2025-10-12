@@ -1,4 +1,4 @@
-
+import clsx from "clsx";
 import type { Camper } from "../../types/Campers";
 import Icon from "../icon";
 import styles from "./CampersCard.module.css"
@@ -21,6 +21,11 @@ export const CamperCard = ({ camper }: { camper: Camper }) => {
           <div className={styles.topRow}>
             <h2 className={styles.name}>{camper.name}</h2>
             <h2 className={styles.price}>€{camper.price}</h2>
+            <button className={clsx(styles.wishbutton, 
+                [styles.active]
+              )} type="button">
+              <Icon name="icon-Like" width={24} height={24} className={styles.icon} />
+            </button>
             </div> 
           <div className={styles.bottomRow}>
              <div className={styles.reviews}>

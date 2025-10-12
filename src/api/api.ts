@@ -9,7 +9,7 @@ export interface GetCampersResponse {
   total: number;
   items: Camper[];
 }
-export const getCampers = (filters?: Filter, page?: number) =>
-  axios.get<GetCampersResponse>(API_URL, { params: { ...filters, page } });
+export const getCampers = (filters?: Filter) =>
+  axios.get<GetCampersResponse>(API_URL, { params: { ...filters} });
 
 export const getCampersById = (id: string) => axios.get<Camper>(`${API_URL}/${id}`);

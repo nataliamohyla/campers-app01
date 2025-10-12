@@ -5,6 +5,7 @@ import type { Camper } from '../../types/Campers';
 import type { Filter } from '../../types/Filters';
 
 interface CampersState {
+   allItems: Camper[];
   items: Camper[];
   total: number;
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
@@ -12,10 +13,12 @@ interface CampersState {
 }
 
 const initialState: CampersState = {
+   allItems: [],
   items: [],
   total: 0,
   status: 'idle',
   error: null,
+ 
 };
 
 interface GetCampersResponse {
@@ -23,13 +26,20 @@ interface GetCampersResponse {
   items: Camper[];
 }
 
-export const fetchCampers = createAsyncThunk<GetCampersResponse, { filters?: Filter; page?: number }>(
+export const fetchCampers = createAsyncThunk<GetCampersResponse, { filters?: Filter}, {rejectValue: string}>(
   'campers/fetchCampers',
-  async ({ filters, page }) => {
-    const response = await getCampers(filters, page);
+  async ({ filters = {} }, { rejectWithValue}) => {
+    try {
+       const response = await getCampers(filters);
         return response.data; 
     }
+  
+    catch  {
+      return rejectWithValue('Failed to fetch campers');
+    }
+  }
 );
+
 
 const camperSlice = createSlice({
   name: 'campers',
@@ -43,9 +53,12 @@ const camperSlice = createSlice({
       })
       .addCase(fetchCampers.fulfilled, (state, action: PayloadAction<GetCampersResponse>) => {
         state.status = 'succeeded';
-        state.items = action.payload.items;
+        state.allItems = action.payload.items;
         state.total = action.payload.total;
+        state.items = action.payload.items.slice(0, 4);
       })
+  
+
       .addCase(fetchCampers.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message || null;
