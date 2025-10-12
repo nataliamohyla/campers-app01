@@ -45,7 +45,7 @@ object-fit: cover;
 }
 
 .wishbutton.active {
-  color: red; 
+  fill: red; 
 }
 .bottomRow {
   display: flex;

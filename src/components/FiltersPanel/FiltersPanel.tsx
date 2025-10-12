@@ -2,9 +2,13 @@ import { useDispatch } from "react-redux";
 import { setFilters } from "../../redux/slice/filterSlice";
 import Icon from "../icon";
 import styles from './FiltersPanel.module.css';
+//import { useState } from "react";
 
 const FiltersPanel = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+ // const [localFilters, setLocalFilters] = useState({});
+
+
 
     return (
         <div className={styles.panel}>

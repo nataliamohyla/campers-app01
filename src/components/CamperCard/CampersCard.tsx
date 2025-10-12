@@ -3,9 +3,20 @@ import type { Camper } from "../../types/Campers";
 import Icon from "../icon";
 import styles from "./CampersCard.module.css"
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { selectFavorites } from "../../redux/selectors/favoriteSelectors";
+import { toggleFavorite } from "../../redux/slice/favoriteSlice";
+
 
 export const CamperCard = ({ camper }: { camper: Camper }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const favorite = useSelector(selectFavorites);
+  const isFavorite = favorite.some(c => c.id === camper.id);
+
+  const handelToggleFavorite = () => {
+    dispatch(toggleFavorite(camper));
+  };
   return (
     <div className={styles.card}>
       <div>
@@ -21,9 +32,9 @@ export const CamperCard = ({ camper }: { camper: Camper }) => {
           <div className={styles.topRow}>
             <h2 className={styles.name}>{camper.name}</h2>
             <h2 className={styles.price}>€{camper.price}</h2>
-            <button className={clsx(styles.wishbutton, 
-                [styles.active]
-              )} type="button">
+            <button className={clsx(styles.wishbutton, {
+                [styles.active]: isFavorite,
+              })} onClick={handelToggleFavorite} type="button">
               <Icon name="icon-Like" width={24} height={24} className={styles.icon} />
             </button>
             </div> 

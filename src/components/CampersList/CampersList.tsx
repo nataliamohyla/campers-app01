@@ -3,15 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCampers } from "../../redux/slice/camperSlice";
 import { CamperCard } from "../CamperCard/CampersCard";
 import type { Camper } from "../../types/Campers";
-import type { AppDispatch, RootState } from "../../redux/store";
+import type { AppDispatch } from "../../redux/store";
 import styles from "./CampersList.module.css"
+import { selectAllCampers, selectCampersStatus } from "../../redux/selectors/campersSelector";
 
 
  const ITEM_PER_PAGE = 4;
 export const CampersCatalog = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { allItems, status } = useSelector((state: RootState) => state.campers);
- const [items, setItems] = useState<Camper[]>([]);
+  const [items, setItems] = useState<Camper[]>([]);
+  const allItems = useSelector(selectAllCampers);
+  const status = useSelector(selectCampersStatus);
+  
 
   useEffect(() => {
     dispatch(fetchCampers({ filters: {}  }));
