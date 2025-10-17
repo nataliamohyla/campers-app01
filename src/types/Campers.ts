@@ -31,6 +31,7 @@ export interface Camper {
   photos?: string[];
   gallery?: Photo[];
   reviews?: Review[];
+  email?: string;
 }
 export interface Review {
   reviewer_name: string;

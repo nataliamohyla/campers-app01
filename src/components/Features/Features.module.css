@@ -1,0 +1,29 @@
+.featuresList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f7f7f7;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.detailsList {
+  border-top: 1px solid #ddd;
+  padding-top: 16px;
+  display: grid;
+  gap: 8px;
+}
+
+.detailItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #333;
+}

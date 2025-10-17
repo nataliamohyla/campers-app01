@@ -92,7 +92,7 @@ export const CamperCard = ({ camper }: { camper: Camper }) => {
         )}
     </div>
       <div className={styles.butonbox}> 
-        <button className={styles.button} type="button" onClick={() => navigate('/catalog/:id')}>Show more</button>
+        <button className={styles.button} type="button"   onClick={() => navigate(`/catalog/${camper.id}`)}>Show more</button>
       </div>
       </div>
       
