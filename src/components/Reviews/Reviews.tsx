@@ -1,4 +1,5 @@
 import type { Review } from '../../types/Campers';
+import Icon from '../icon';
 import styles from './Reviews.module.css';
 
 
@@ -9,7 +10,8 @@ const Reviews = ({ reviews }: { reviews: Review[] }) => {
             {reviews.map((review, index) => (
                 <div key={index} className={styles.reviewItem}>
                     <strong>{review.reviewer_name}</strong>
-                    <p>{"⭐".repeat(review.rating)}</p>
+                    <Icon name="icon-star" className={styles.icon} />
+                    <p>{review.rating}</p>
                     <p>{review.comment}</p>
                   
                 </div>

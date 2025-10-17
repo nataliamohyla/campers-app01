@@ -1,0 +1,66 @@
+.formContainer{
+    border: 1px solid #d50707;
+  border-radius: 10px;
+padding: 44px;
+
+height: 588px;
+}
+.name{
+   
+  font-weight: 600;
+font-size: 20px;
+line-height: 120%;
+  margin-bottom: 20px;
+  color: #0c0c0c;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 527px;
+height: 340px;
+}
+.fieldWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  height: 18px; 
+  margin-top: 4px;
+}
+.field{
+  border-radius: 12px;
+padding: 10px 333px 10px 10px;
+
+height: 60px;
+background: #f7f7f7;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+.datePicker{
+  border-radius: 12px;
+padding: 10px 333px 10px 10px; 
+border: none; 
+}
+.button{
+ border-radius: 200px;
+padding: 16px 60px;
+width: 166px;
+height: 56px; 
+ background-color: #E44848;
+  color: aliceblue;
+  margin:  auto ;
+}
+.button:hover{
+    background-color: #D84343;
+}
+input,
+textarea {
+  background-color: transparent; 
+  color: #000;                  
+}

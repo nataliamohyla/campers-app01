@@ -8,6 +8,7 @@ import styles from "./CatalogDetailsPage.module.css";
 import { CamperGallery } from "../../components/CamperGallery/CamperGallery";
 import { CamperBookingForm } from "../../components/BookingForm/BookingForm";
 import type { Camper } from "../../types/Campers";
+import Icon from "../../components/icon";
 
 
 const Features = lazy(() => import("../../components/Features/Features"));
@@ -35,13 +36,32 @@ console.log('id from useParams:', id);
   if (status === "idle" || status === "loading") return <p>Loading...</p>;
   if (!camper) return <p>Camper not found</p>;
     return (
-        <main className={styles.detailsPage}>
-            <h1 className={styles.title}>{camper.name}</h1>
-            <p className={styles.location}>{camper.location}</p>
-            <p className={styles.price}>€ {camper.price}</p>
-            <CamperGallery photos={camper.photos || []} />
+      <main className={styles.detailsPage}>
+        <div className={styles.info}>
+          <h1 className={styles.title}>{camper.name}</h1>
+          <div className={styles.subinfo}>
+          <p className={styles.location}><Icon name="icon-Map" className={styles.icon} /> {camper.location} </p>
+            <div className={styles.reting}>
+              <Icon name="icon-star" className={styles.icon} />
+              <p>{camper.rating}</p>
+               <span className={styles.count}>
+               ({camper.reviews?.length || 0} reviews)
+             </span>
+            </div>
+            </div>
+          <p className={styles.price}>€ {camper.price}</p>
+          </div>
+            <CamperGallery 
+  gallery={camper.photos?.length 
+    ? camper.photos 
+    : camper.gallery?.length 
+      ? camper.gallery.map(photo => photo.thumb) 
+      : ["https://via.placeholder.com/300"]} 
+/>
             <p className={styles.description}>{camper.description}</p>
-            <div className={styles.tabs}>
+            <div className={styles.contentWrapper}>
+                <div className={styles.leftColumn}>
+              <div className={styles.tabs}>
                 <button className={`${styles.tabButton} ${activeTab === 'features' ? styles.active : ''}`}
                     onClick={() => setActiveTab('features')}>Features</button>
                  <button
@@ -58,8 +78,12 @@ console.log('id from useParams:', id);
                     ) : (
                         <Reviews reviews={camper.reviews || []} />
                     )}
-                </Suspense>
-                <CamperBookingForm/>
+                        </Suspense>
+                        </div>
+            </div>
+           <div className={styles.rightColumn}>
+                    <CamperBookingForm />
+                    </div>
             </div>
         </main>
     );

@@ -25,7 +25,7 @@ const Features = ({ camper }: { camper: Camper }) => {
   { key: "consumption", label: "Consumption", unit: "L/100km" },
 ];
     return (
-        <div className={styles.feature}>
+        <div className={styles.features}>
         <ul className={styles.featuresList}>
   {featuresList.map(({ key, label, icon }) =>
     camper[key as keyof Camper] ? (
@@ -41,7 +41,7 @@ const Features = ({ camper }: { camper: Camper }) => {
     const value = camper[key as keyof Camper];
     return value ? (
       <li key={key} className={styles.detailItem}>
-        <span>{label}</span>
+        <span className={styles.info}>{label}</span>
         <span>{`${value}${unit ? " " + unit : ""}`}</span>
       </li>
     ) : null;
