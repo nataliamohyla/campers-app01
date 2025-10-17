@@ -58,10 +58,8 @@ console.log('id from useParams:', id);
       ? camper.gallery.map(photo => photo.thumb) 
       : ["https://via.placeholder.com/300"]} 
 />
-            <p className={styles.description}>{camper.description}</p>
-            <div className={styles.contentWrapper}>
-                <div className={styles.leftColumn}>
-              <div className={styles.tabs}>
+        <p className={styles.description}>{camper.description}</p>
+               <div className={styles.tabs}>
                 <button className={`${styles.tabButton} ${activeTab === 'features' ? styles.active : ''}`}
                     onClick={() => setActiveTab('features')}>Features</button>
                  <button
@@ -71,6 +69,10 @@ console.log('id from useParams:', id);
           Reviews
         </button>
             </div>
+        <div className={styles.contentWrapper}>
+       
+                <div className={styles.leftColumn}>
+          
             <div className={styles.tabContent}>
                 <Suspense fallback={<p> Loading...</p>}>
                     {activeTab === 'features' ? (

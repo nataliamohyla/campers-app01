@@ -9,9 +9,12 @@ const Reviews = ({ reviews }: { reviews: Review[] }) => {
         <div className={styles.reviews}>
             {reviews.map((review, index) => (
                 <div key={index} className={styles.reviewItem}>
-                    <strong>{review.reviewer_name}</strong>
-                    <Icon name="icon-star" className={styles.icon} />
-                    <p>{review.rating}</p>
+                    <h3>{review.reviewer_name}</h3>
+                    <div className={styles.rating}>
+                       <Icon name="icon-star" className={styles.icon} />
+                    <p>{review.reviewer_rating}</p>
+                    </div>
+                
                     <p>{review.comment}</p>
                   
                 </div>
@@ -20,3 +23,5 @@ const Reviews = ({ reviews }: { reviews: Review[] }) => {
     );
 };
 export default Reviews;
+
+

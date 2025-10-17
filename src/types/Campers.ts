@@ -36,5 +36,5 @@ export interface Camper {
 export interface Review {
   reviewer_name: string;
   comment: string;
-  rating: number;
+  reviewer_rating: number;
 }
