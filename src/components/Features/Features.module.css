@@ -5,6 +5,7 @@
 padding: 44px 80px;
 height: 588px;
 background: #f7f7f7;
+width: 500px;
 }
 .featuresList {
   display: grid;
