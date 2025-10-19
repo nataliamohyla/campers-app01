@@ -22,7 +22,6 @@ export const CatalogDetailsPage = () => {
     const currentCamper = useSelector(selectCurrentCamper);
     const status = useSelector(selectCampersStatus);
     const [activeTab, setActiveTab] = useState<'features' | 'reviews'>('features');
-console.log('id from useParams:', id);
     useEffect(() => {
     if (!id) return;
 

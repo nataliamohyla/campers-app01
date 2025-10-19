@@ -34,9 +34,7 @@ export const fetchCampers = createAsyncThunk<GetCampersResponse, { filters?: Fil
   async ({ filters = {} }, { rejectWithValue}) => {
     try {
       const response = await getCampers(filters);
-        console.log("API response:", response.data);
       return response.data; 
-      
     }
   
     catch  {
