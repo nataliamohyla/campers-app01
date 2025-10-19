@@ -6,6 +6,7 @@ import type { Camper } from "../../types/Campers";
 import type { AppDispatch } from "../../redux/store";
 import styles from "./CampersList.module.css"
 import { selectAllCampers, selectCampersStatus } from "../../redux/selectors/campersSelector";
+import Loader from "../Loader/Loader";
 
 
  const ITEM_PER_PAGE = 4;
@@ -32,8 +33,8 @@ export const CampersCatalog = () => {
     setItems(prev => [...prev, ...nextLength]);
   };
 
-  if (status === "loading") return <p>Loading...</p>;
-  if (status === "failed") return <p>Error loading campers</p>;
+  if (status === "loading") return <Loader />;
+  if (status === "failed") return <p>Failed loading</p>;
 
   return (
     <div >

@@ -29,7 +29,7 @@ const validationSchema = Yup.object({
 export const CamperBookingForm = () => {
   const handleSubmit = (
     values: BookingFormValues,
-    { resetForm }: FormikHelpers<BookingFormValues> // типізований
+    { resetForm }: FormikHelpers<BookingFormValues> 
   ) => {
     console.log("Booking submitted:", values);
     resetForm();

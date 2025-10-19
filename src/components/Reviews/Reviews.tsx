@@ -11,7 +11,10 @@ const Reviews = ({ reviews }: { reviews: Review[] }) => {
                 <div key={index} className={styles.reviewItem}>
                     <h3>{review.reviewer_name}</h3>
                     <div className={styles.rating}>
-                       <Icon name="icon-star" className={styles.icon} />
+                         {Array.from({ length: review.reviewer_rating }).map((_, i) => (
+              <Icon key={i} name="icon-star" className={styles.icon} />
+            ))}
+                     
                     <p>{review.reviewer_rating}</p>
                     </div>
                 

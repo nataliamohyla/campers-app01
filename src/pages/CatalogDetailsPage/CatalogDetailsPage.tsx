@@ -9,6 +9,7 @@ import { CamperGallery } from "../../components/CamperGallery/CamperGallery";
 import { CamperBookingForm } from "../../components/BookingForm/BookingForm";
 import type { Camper } from "../../types/Campers";
 import Icon from "../../components/icon";
+import Loader from "../../components/Loader/Loader";
 
 
 const Features = lazy(() => import("../../components/Features/Features"));
@@ -33,7 +34,7 @@ console.log('id from useParams:', id);
 
   const camper = campers.find((item: Camper) => item.id === id) || currentCamper;
 
-  if (status === "idle" || status === "loading") return <p>Loading...</p>;
+  if (status === "idle" || status === "loading") return <Loader/>;
   if (!camper) return <p>Camper not found</p>;
     return (
       <main className={styles.detailsPage}>
